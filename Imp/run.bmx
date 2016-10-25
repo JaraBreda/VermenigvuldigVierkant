@@ -41,6 +41,7 @@ Function Game(ln$)
 	NewTask
 	Local oldtime$ = CurrentTime()
 	Repeat
+		cls
 		If oldtime<>CurrentTime() ll.Time:+1; oldtime=CurrentTime()
 		lc = 155 + Floor(Sin(MilliSecs()/100)*100)
 		For Local i=1 To 10

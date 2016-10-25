@@ -68,14 +68,17 @@ Function Game(ln$)
 		Next		
 		If KeyHit(8) And asw asw=Left(asw,Len(asw)-1)
 		Local a = asw.toint()
-		If (KeyHit(KEY_RETURN) Or KeyHit(key_enter)) And a>0 And a<=100 
-			ll.tasks:+1
-			If a=tx*ty ll.correct:+1 Else ll.wrong:+1
-			If ll.tasks>100 Exit
-			Select config.c("TYPE")
-				Case "TIME" If ll.Time>=config.c("MAXTIME").toint() Exit
-				Case "TASKS"If ll.tasks>=config.c("MAXTASKS").toint() Exit
-			End Select	
+		If (KeyHit(KEY_RETURN) Or KeyHit(key_enter)) 
+			Print "Answer: "+a
+			If a>0 And a<=100 
+				ll.tasks:+1
+				If a=tx*ty ll.correct:+1 Else ll.wrong:+1
+				If ll.tasks>100 Exit
+				Select config.c("TYPE")
+					Case "TIME" If ll.Time>=config.c("MAXTIME").toint() Exit
+					Case "TASKS"If ll.tasks>=config.c("MAXTASKS").toint() Exit
+				End Select	
+			EndIf	
 		EndIf	
 		Flip
 	Forever

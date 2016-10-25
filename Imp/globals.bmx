@@ -44,11 +44,11 @@ Type tleerling
 	Method stime$()
 		Local seconds,minutes,hours
 		seconds = Time
-		While seconds>60
+		While seconds>=60
 			minutes = minutes + 1
 			seconds = seconds - 60
 		Wend
-		While minutes>60
+		While minutes>=60
 			hours:+1
 			minutes:-60
 		Wend

@@ -3,7 +3,7 @@ Strict
 Import "../globals.bmx"
 
 Incbin "Dutch"
-incnin "English"
+incbin "English"
 
 Private
 Global langs:TList = New TList 

@@ -41,7 +41,7 @@ Function Game(ln$)
 	NewTask
 	Local oldtime$ = CurrentTime()
 	Repeat
-		cls
+		Cls
 		If oldtime<>CurrentTime() ll.Time:+1; oldtime=CurrentTime()
 		lc = 155 + Floor(Sin(MilliSecs()/100)*100)
 		For Local i=1 To 10
@@ -73,6 +73,7 @@ Function Game(ln$)
 			Print "Answer: "+a
 			If a>0 And a<=100 
 				ll.tasks:+1
+				done[tx,ty]=a
 				If a=tx*ty ll.correct:+1 Else ll.wrong:+1
 				If ll.tasks>100 Exit
 				Select config.c("TYPE")
@@ -84,6 +85,7 @@ Function Game(ln$)
 		EndIf	
 		Flip
 	Forever
+	endgraphics
 	Notify Replace(lng("AllDone"),"$PUPIL",ln)
 End Function
 

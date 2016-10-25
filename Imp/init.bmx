@@ -6,6 +6,7 @@ Import "intlanguage/langs.bmx"
 Function init()
 	Local show$
 	AppTitle = StripAll(AppFile)
+	SeedRnd MilliSecs()
 	 InstallLanguages()
 	lang = FilePicker("Please select a language",LangDir)
 	If Not lang exit_ 0

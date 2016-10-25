@@ -41,6 +41,7 @@ Function Game(ln$)
 	NewTask
 	Local oldtime$ = CurrentTime()
 	Repeat
+		Rand(1,2) 'Make Random REALLY random :-P
 		Cls
 		If oldtime<>CurrentTime() ll.Time:+1; oldtime=CurrentTime()
 		lc = 155 + Floor(Sin(MilliSecs()/100)*100)
@@ -85,7 +86,7 @@ Function Game(ln$)
 		EndIf	
 		Flip
 	Forever
-	endgraphics
+	EndGraphics
 	Notify Replace(lng("AllDone"),"$PUPIL",ln)
 End Function
 
@@ -120,6 +121,7 @@ Function SaveResults(F$)
 	WriteLine bt,"</html>"
 	CloseFile bt
 	If Proceed(lng("end.show"))=1 OpenURL(f)
+	Return true
 End Function
 
 

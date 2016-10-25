@@ -19,12 +19,13 @@ End Function
 Function NewTask()
 	Local timeout=100000
 	Repeat
-		tx = Rand(1,100)
-		ty = Rand(1,100)
+		tx = Rand(1,10)
+		ty = Rand(1,10)
 		timeout:-1
 		If timeout<0 Notify "ERROR: Timeout!"; End
 	Until Not done[tx,ty]
 	asw=""
+	Print "Nieuwe som: "+tx+"x"+ty
 End Function
 
 Function Game(ln$)
@@ -38,7 +39,9 @@ Function Game(ln$)
 	Local gh = GraphicsHeight()
 	cleardone
 	NewTask
+	Local oldtime$ = CurrentTime()
 	Repeat
+		If oldtime<>CurrentTime() ll.Time:+1; oldtime=CurrentTime()
 		lc = 155 + Floor(Sin(MilliSecs()/100)*100)
 		For Local i=1 To 10
 			SetColor lc,lc,255-lc
@@ -48,10 +51,35 @@ Function Game(ln$)
 			SetColor 255,180,0
 			DrawText i,i*25,0
 			DrawText i,0,i*25
-		Next	
+			For Local i2=1 To 10
+				If done[i,i2] 
+					If done[i,i2]=i*i2 SetColor 180,255,0 Else SetColor 255,0,0
+					DrawText done[i,i2],i*25,i2*25
+				EndIf	
+			Next	
+		Next
+		SetColor lc,lc,255-lc
+		DrawRect tx*25,ty*25,25,25
+		SetColor 0,0,0
+		DrawText asw+"|",tx*25,ty*25
+		Local n
+		For Local i=0 To 9
+			If (KeyHit(i+48) Or KeyHit(i+96)) And (Len asw)<3 asw:+""+i
+		Next		
+		If KeyHit(8) And asw asw=Left(asw,Len(asw)-1)
+		Local a = asw.toint()
+		If (KeyHit(KEY_RETURN) Or KeyHit(key_enter)) And a>0 And a<=100 
+			ll.tasks:+1
+			If a=tx*ty ll.correct:+1 Else ll.wrong:+1
+			If ll.tasks>100 Exit
+			Select config.c("TYPE")
+				Case "TIME" If ll.Time>=config.c("MAXTIME").toint() Exit
+				Case "TASKS"If ll.tasks>=config.c("MAXTASKS").toint() Exit
+			End Select	
+		EndIf	
 		Flip
-		
 	Forever
+	Notify Replace(lng("AllDone"),"$PUPIL",ln)
 End Function
 
 Function SaveResults(F$)

@@ -13,6 +13,7 @@ end.rfc=Bestandsnaam
 end.show=Resultaat laten zien?
 
 welcome=Hallo $PUPIL;#(13)Klik op "OK" als je klaar bent om te beginnen!
+alldone=De oefening is nu klaar, $PUPIL#(13)Roep nu je leerlaar!
 
 failure.save=Opslaan mislukt
 

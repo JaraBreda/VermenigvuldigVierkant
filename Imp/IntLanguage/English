@@ -1,0 +1,24 @@
+[vars]
+Config.Choose=Choose your configurations
+Config.Type=Type TIME for timed based, type TASKS for the number of tasks to be solved
+Config.MaxTime=Max time in seconds (min 60 seconds)
+Config.MaxTasks=Max tasks (min 5, max 100)
+Config.Confirm=Is this data correct? 
+Config.wait4save=A text editor will open so you can edit this data.#(10)Click Ok when you are done.
+
+Pupil.New=Name Pupil:
+
+end.result=Do you want to save the end results?
+end.rfc=File name
+end.show=Show the result?
+
+welcome=Hello $PUPIL;#(13)Click "OK" when you are ready to begin.
+alldone=You are done, $PUPIL#(13)Please call in your teacher!
+
+failure.save=Saving failed
+
+table.name=Pupil
+table.tasksdone=Done
+table.correct=Right
+table.wrong=Wrong
+table.time=Time

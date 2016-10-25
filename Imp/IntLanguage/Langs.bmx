@@ -3,11 +3,13 @@ Strict
 Import "../globals.bmx"
 
 Incbin "Dutch"
+incnin "English"
 
 Private
 Global langs:TList = New TList 
 ListAddLast langs , "Dutch"
-Const alwaysask = True 'Must be false in final version
+ListAddLast langs , "English"
+Const alwaysask = False 'Must be false in final version
 
 Public
 

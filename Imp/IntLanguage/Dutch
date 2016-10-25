@@ -1,0 +1,23 @@
+[vars]
+Config.Choose=Kies uw configuratie
+Config.Type=Gaat deze config op tijd, type TIME, gaat deze config op aantal sommen type TASKS
+Config.MaxTime=Maximale tijd in seconden (min 60 seconden)
+Config.MaxTasks=Maximale aantal sommen (min 5, max 100)
+Config.Confirm=Zijn deze gegevens correct? 
+Config.wait4save=Een tekst editor zal nu openen om de gegevens te corrigeren#(13), klik op OK als u klaar bent en de gegevens heeft opgeslagen!
+
+Pupil.New=Naam leerling:
+
+end.result=Wilt u het eind-resultaat opslaan?
+end.rfc=Bestandsnaam
+end.show=Resultaat laten zien?
+
+welcome=Hallo $PUPIL;#(13)Klik op "OK" als je klaar bent om te beginnen!
+
+failure.save=Opslaan mislukt
+
+table.name=Leerling
+table.tasksdone=Sommen Gemaakt
+table.correct=Goed
+table.wrong=Fout
+table.time=Tijd

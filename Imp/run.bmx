@@ -78,6 +78,7 @@ Function Game(ln$)
 					Case "TIME" If ll.Time>=config.c("MAXTIME").toint() Exit
 					Case "TASKS"If ll.tasks>=config.c("MAXTASKS").toint() Exit
 				End Select	
+				newtask
 			EndIf	
 		EndIf	
 		Flip
